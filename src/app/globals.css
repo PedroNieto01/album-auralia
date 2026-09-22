@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ─── Auralia Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* Paleta cálida inspirada en pergamino, piedra y tonos envejecidos */
+  --auralia-parchment:   #f5efe6;
+  --auralia-parchment-dark: #e8ddd0;
+  --auralia-stone:       #c4b49a;
+  --auralia-stone-dark:  #8c7b68;
+  --auralia-ink:         #2c2416;
+  --auralia-ink-soft:    #4a3f32;
+  --auralia-gold:        #c9a84c;
+  --auralia-gold-light:  #e8c97a;
+  --auralia-gold-dim:    #9a7a38;
+  --auralia-shadow:      rgba(44, 36, 22, 0.15);
+
+  /* Tipografía */
+  --font-display: var(--font-cormorant);
+  --font-body:    var(--font-inter);
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+body {
+  background-color: var(--auralia-ink);
+  color: var(--auralia-parchment);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar sutil ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--auralia-stone-dark);
+  border-radius: 2px;
+}
+
+/* ─── Selección de texto ────────────────────────────────────────────── */
+::selection {
+  background: var(--auralia-gold-dim);
+  color: var(--auralia-parchment);
+}
+
+/* ─── Tipografía display ────────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* ─── Animaciones de entrada ────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ─── Utilidades Auralia ────────────────────────────────────────────── */
+.auralia-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--auralia-gold-dim) 0%,
+    var(--auralia-gold-light) 50%,
+    var(--auralia-gold-dim) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.auralia-texture {
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(196,180,154,0.06) 0%, transparent 50%);
+}
+
+/* ─── Lightbox ──────────────────────────────────────────────────────── */
+.lightbox-open {
+  overflow: hidden;
+}
+

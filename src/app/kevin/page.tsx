@@ -37,8 +37,27 @@ export default function KevinPage() {
           transition={{ duration: 1 }}
         >
           <AlbumLayout personName={album.name}>
-            <MedievalDivider variant="simple" className="mb-10 max-w-[160px] mx-auto" />
+            <div className="flex items-center gap-4 mb-10 max-w-[260px] mx-auto">
+  <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[var(--auralia-stone-dark)] to-transparent opacity-30" />
 
+  <div className="w-[170px] flex items-center justify-center gap-3 flex-shrink-0">
+    <div className="w-1 h-1 rounded-full bg-[var(--auralia-gold)] opacity-50 flex-shrink-0" />
+
+    <span
+      className="font-display text-[10px] tracking-[0.35em] uppercase whitespace-nowrap text-center"
+      style={{
+        color: "var(--auralia-gold)",
+        opacity: 0.65,
+      }}
+    >
+      Alquimista 🗡️🔮
+    </span>
+
+    <div className="w-1 h-1 rounded-full bg-[var(--auralia-gold)] opacity-50 flex-shrink-0" />
+  </div>
+
+  <div className="flex-1 h-px bg-gradient-to-l from-transparent via-[var(--auralia-stone-dark)] to-transparent opacity-30" />
+</div>
             {/* Galería */}
             <section>
               <PhotoGallery photos={PHOTOS.kevin} />

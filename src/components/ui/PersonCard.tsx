@@ -26,7 +26,7 @@ export function PersonCard({ id, name, coverPhoto, index }: PersonCardProps) {
         aria-label={`Álbum de ${name}`}
       >
         {/* Contenedor de imagen */}
-        <div className="relative aspect-[3/4] overflow-hidden">
+        <div className="relative aspect-[1949/3048] overflow-hidden">
           {/* Foto de portada */}
           <Image
             src={coverPhoto}

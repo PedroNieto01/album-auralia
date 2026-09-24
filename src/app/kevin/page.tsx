@@ -3,12 +3,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { KeyEntry } from "@/components/ui/KeyEntry";
 import { AlbumLayout } from "@/components/ui/AlbumLayout";
-import { VideoPlayer } from "@/components/ui/VideoPlayer";
 import { PhotoGallery } from "@/components/ui/PhotoGallery";
 import { MedievalDivider } from "@/components/decorative/MedievalDivider";
+import { MusicPlayer } from "@/components/ui/MusicPlayer";
 import { useAlbumAccess } from "@/hooks/useAlbumAccess";
 import { ALBUMS } from "@/config/albums";
-import { VIDEOS, PHOTOS } from "@/config/media";
+import { MUSIC, PHOTOS } from "@/config/media";
 
 export default function KevinPage() {
   const album = ALBUMS.kevin;
@@ -37,16 +37,6 @@ export default function KevinPage() {
           transition={{ duration: 1 }}
         >
           <AlbumLayout personName={album.name}>
-            {/* Video de Kevin */}
-            <section className="mb-10 -mx-4 md:-mx-6">
-              <VideoPlayer
-                video={VIDEOS.kevin}
-                showControls
-                compact
-                className="aspect-video md:aspect-[16/7] w-full"
-              />
-            </section>
-
             <MedievalDivider variant="simple" className="mb-10 max-w-[160px] mx-auto" />
 
             {/* Galería */}
@@ -54,6 +44,9 @@ export default function KevinPage() {
               <PhotoGallery photos={PHOTOS.kevin} />
             </section>
           </AlbumLayout>
+
+          {/* Música de fondo — arranca tras la interacción de la clave */}
+          <MusicPlayer src={MUSIC.kevin} volume={0.4} />
         </motion.div>
       )}
     </AnimatePresence>

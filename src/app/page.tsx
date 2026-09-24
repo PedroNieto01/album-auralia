@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { VideoPlayer } from "@/components/ui/VideoPlayer";
 import { PersonSelector } from "@/components/ui/PersonSelector";
+import { VideoPlayer } from "@/components/ui/VideoPlayer";
+import { MusicPlayer } from "@/components/ui/MusicPlayer";
 import { MedievalDivider } from "@/components/decorative/MedievalDivider";
 import { GoldAccent } from "@/components/decorative/GoldAccent";
 import { Ornament } from "@/components/decorative/Ornament";
-import { VIDEOS } from "@/config/media";
+import { MUSIC, INTRO_VIDEO } from "@/config/media";
 
 type Stage = "welcome" | "video" | "selector";
 
@@ -31,6 +32,8 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <PersonSelector />
+            {/* Música arranca tras la interacción del usuario en el video */}
+            <MusicPlayer src={MUSIC.selector} volume={0.35} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -73,7 +76,7 @@ function WelcomeStage({ onContinue }: { onContinue: () => void }) {
           className="font-display text-xs tracking-[0.5em] uppercase mb-6"
           style={{ color: "var(--auralia-gold)", opacity: 0.65 }}
         >
-          Coventàlia · 2024
+          Coventalia · 2026
         </motion.p>
 
         {/* Título principal */}
@@ -154,7 +157,7 @@ function WelcomeStage({ onContinue }: { onContinue: () => void }) {
   );
 }
 
-/* ─── Pantalla de video ─────────────────────────────────────────────── */
+/* ─── Pantalla de video introductorio ──────────────────────────────── */
 
 function VideoStage({ onContinue }: { onContinue: () => void }) {
   return (
@@ -166,7 +169,7 @@ function VideoStage({ onContinue }: { onContinue: () => void }) {
       className="min-h-screen relative"
     >
       <VideoPlayer
-        video={VIDEOS.intro}
+        video={INTRO_VIDEO}
         showControls
         onContinue={onContinue}
         continueLabel="Ver los álbumes"
@@ -175,4 +178,3 @@ function VideoStage({ onContinue }: { onContinue: () => void }) {
     </motion.div>
   );
 }
-

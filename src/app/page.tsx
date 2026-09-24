@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { PersonSelector } from "@/components/ui/PersonSelector";
 import { VideoPlayer } from "@/components/ui/VideoPlayer";
@@ -14,6 +15,7 @@ type Stage = "welcome" | "video" | "selector";
 
 export default function Home() {
   const [stage, setStage] = useState<Stage>("welcome");
+  const router = useRouter();
 
   return (
     <div className="min-h-screen" style={{ background: "var(--auralia-ink)" }}>
@@ -22,7 +24,11 @@ export default function Home() {
           <WelcomeStage key="welcome" onContinue={() => setStage("video")} />
         )}
         {stage === "video" && (
-          <VideoStage key="video" onContinue={() => setStage("selector")} />
+          <VideoStage
+            key="video"
+            onContinue={() => router.push("/selector")}
+          />
+          
         )}
         {stage === "selector" && (
           <motion.div

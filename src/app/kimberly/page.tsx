@@ -56,7 +56,11 @@ export default function KimberlyPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <AlbumLayout personName={album.name} cinematic>
+          <AlbumLayout
+  personName={album.name}
+  cinematic
+  backgroundImage="/media/kimberly/kimberly-background.jpeg"
+>
             <div className="flex items-center gap-4 mb-10 max-w-[260px] mx-auto">
   <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[var(--auralia-stone-dark)] to-transparent opacity-30" />
 

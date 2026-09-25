@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { PersonCard } from "./PersonCard";
+import { AdminCard } from "./AdminCard";
 import { MedievalDivider } from "@/components/decorative/MedievalDivider";
 import { GoldAccent } from "@/components/decorative/GoldAccent";
 import { ALBUM_IDS, ALBUMS } from "@/config/albums";
@@ -42,16 +43,18 @@ export function PersonSelector() {
 
       {/* Tarjetas de personas */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 w-full max-w-3xl">
-        {ALBUM_IDS.map((id, index) => (
-          <PersonCard
-            key={id}
-            id={id}
-            name={ALBUMS[id].name}
-            coverPhoto={COVER_PHOTOS[id]}
-            index={index}
-          />
-        ))}
-      </div>
+  {ALBUM_IDS.map((id, index) => (
+    <PersonCard
+      key={id}
+      id={id}
+      name={ALBUMS[id].name}
+      coverPhoto={COVER_PHOTOS[id]}
+      index={index}
+    />
+  ))}
+
+  <AdminCard index={3} />
+</div>
 
       {/* Nota al pie */}
       <motion.p
